@@ -13,7 +13,7 @@ android {
         minSdk = 26
         targetSdk = 34
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.0.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -52,7 +52,6 @@ android {
 
 dependencies {
     implementation(project(":dynamic-environment"))
-//    implementation(project(mapOf("path" to ":dynamic-environment")))
 
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)

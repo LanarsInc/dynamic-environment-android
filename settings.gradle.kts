@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "test-app"
+rootProject.name = "Dynamic Environment Tool"
 include(":app")
 include(":dynamic-environment")

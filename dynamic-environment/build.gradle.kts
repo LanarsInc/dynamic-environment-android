@@ -66,7 +66,7 @@ afterEvaluate {
             create<MavenPublication>("mavenJava") {
                 groupId = "com.lanars"
                 artifactId = "dynamic_environment"
-                version = "1.0.0"
+                version = "1.0.1"
                 from(components["release"])
             }
         }
