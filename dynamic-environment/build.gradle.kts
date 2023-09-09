@@ -2,6 +2,7 @@
 plugins {
     alias(libs.plugins.com.android.library)
     alias(libs.plugins.org.jetbrains.kotlin.android)
+    `maven-publish`
 }
 
 android {
@@ -57,4 +58,17 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
+}
+
+afterEvaluate {
+    configure<PublishingExtension> {
+        publications {
+            create<MavenPublication>("mavenJava") {
+                groupId = "com.lanars"
+                artifactId = "dynamic_environment"
+                version = "1.0.0"
+                from(components["release"])
+            }
+        }
+    }
 }
