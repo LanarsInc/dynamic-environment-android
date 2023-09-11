@@ -10,16 +10,42 @@ To get a Git project into your build:
 
 Add it in your root build.gradle at the end of repositories:
 ```
-	allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
+allprojects {
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
 	}
+}
 ```
+
 **Step 2.** Add the dependency
+
 ```
-	dependencies {
-	        implementation 'com.github.LanarsInc:dynamic-environment-android:LATEST'
-	}
+dependencies {
+    implementation 'com.github.LanarsInc:dynamic-environment-android:LATEST'
+}
 ```
+
+**Step 3.** Add OkHttp interceptor
+
+```
+  OkHttpClient.Builder()
+    .addInterceptor(DynamicEnvironmentInterceptor(context))
+    .build()
+```
+
+**Step 4.** Call dialog
+
+```
+val dialogState = remember { mutableStateOf(false) }
+
+if (dialogState.value) {
+    DynamicEnvironmentDialog(
+        baseUrl = BuildConfig.AUTH_BASE_URL,
+        onDismiss = {
+            dialogState.value = false
+        }
+    )
+}
+```
+
